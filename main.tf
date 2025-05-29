@@ -38,3 +38,17 @@ resource "snowflake_warehouse" "tf_warehouse" {
   enable_query_acceleration = false
   initially_suspended       = true
 }
+
+resource snowflake_view view {
+  database = "SNOWFLAKE_LEARNING_DB"
+  schema   = "KHALIL_LOAD_SAMPLE_DATA_FROM_S3"
+  name     = "test_view"
+
+  comment = "comment"
+
+  statement  = <<-SQL
+    select * from MENU;
+SQL
+  or_replace = true
+  is_secure  = false
+}

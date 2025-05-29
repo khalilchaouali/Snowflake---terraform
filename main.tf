@@ -10,7 +10,7 @@ terraform {
 locals {
   organization_name = "lkqjbgz"
   account_name      = "tw57115"
-  private_key_path  = "C:\Users\KCHAOUAL\Downloads\Snowflake - terraform\snowflake_tf_snow_key.p8"
+  private_key_path  = "../snowflake_tf_snow_key.p8"
 }
 
 provider "snowflake" {
@@ -49,6 +49,4 @@ resource snowflake_view view {
   statement  = <<-SQL
     select * from MENU;
 SQL
-  or_replace = true
-  is_secure  = false
 }

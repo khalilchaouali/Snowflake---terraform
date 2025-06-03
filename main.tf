@@ -8,7 +8,8 @@ terraform {
 }
 
 locals {
-  organization_name = "lkqjbgz"
+  organization_name = "snow --help
+  "
   account_name      = "tw57115"
   private_key_path  = "../snowflake_tf_snow_key.p8"
 }
@@ -20,6 +21,7 @@ provider "snowflake" {
     role              = "SYSADMIN"
     authenticator     = "SNOWFLAKE_JWT"
     private_key       = file(local.private_key_path)
+    warehouse="TF_DEMO_WH"
 }
 
 resource "snowflake_database" "tf_db" {
@@ -43,7 +45,6 @@ resource snowflake_view view {
   database = "SNOWFLAKE_LEARNING_DB"
   schema   = "KHALIL_LOAD_SAMPLE_DATA_FROM_S3"
   name     = "test_view"
-
   comment = "comment"
 
   statement  = <<-SQL
